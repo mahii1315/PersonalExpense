@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  recurringExpenses RecurringExpense[]
+  dailyExpenses     DailyExpense[]
+  categories        Category[]
+}
+
+model Category {
+  id      String @id @default(cuid())
+  name    String
+  type    String // FIXED or VARIABLE
+  color   String? // For UI
+  icon    String? // Lucide icon name
+  userId  String
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  recurringExpenses RecurringExpense[]
+  dailyExpenses     DailyExpense[]
+
+  @@unique([name, userId])
+}
+
+model RecurringExpense {
+  id          String   @id @default(cuid())
+  name        String
+  amount      Float
+  frequency   String   // MONTHLY or YEARLY
+  startDate   DateTime
+  endDate     DateTime?
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+  note        String?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model DailyExpense {
+  id          String   @id @default(cuid())
+  amount      Float
+  date        DateTime
+  note        String?
+  paymentMode String   // CASH, CARD, UPI
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
