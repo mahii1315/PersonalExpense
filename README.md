@@ -1,34 +1,139 @@
-# Personal Expense Tracker
+# PersonalExpense Tracker
 
-A smart personal finance app to track your daily and recurring expenses.
+A simple and modern **Personal Expense Tracker** built with **Next.js** that helps users track daily expenses, categorize spending, and get insights into their financial habits.
 
-## Getting Started
+---
 
-1.  **Start the Database**:
-    The database is already set up (SQLite).
+## ✨ Features
 
-2.  **Run the Application**:
-    Open your terminal in this folder and run:
-    ```bash
-    npm run dev
-    ```
+* 📊 Track daily income and expenses
+* 🗂️ Categorize expenses
+* 💾 Persistent storage using SQLite (local development)
+* ⚡ Fast and responsive UI with Next.js
+* 🔒 Environment-based configuration
 
-3.  **Open in Browser**:
-    Go to [http://localhost:3000](http://localhost:3000).
+---
 
-4.  **Create an Account**:
-    - Click "Sign up" to create a new user.
-    - Login with your credentials.
+## 🛠️ Tech Stack
 
-## Features
+* **Frontend:** Next.js, React, TypeScript
+* **Backend:** Next.js API Routes
+* **Database:** SQLite (for local development)
+* **Styling:** Tailwind CSS
+* **Package Manager:** npm
 
--   **Dashboard**: View your daily spending breakdown (Fixed vs Variable).
--   **Daily Expenses**: Add variable costs like Grocery, Food, Travel.
--   **Recurring Expenses**: Add fixed bills like Rent, Subscriptions.
--   **Insights**: See charts of your spending trends.
+---
 
-## Tech Stack
+## 📂 Project Structure
 
--   **Framework**: Next.js 14
--   **Database**: SQLite (Prisma)
--   **Styling**: Tailwind CSS
+```
+PersonalExpense/
+├── app/            # App router pages and layouts
+├── components/     # Reusable UI components
+├── lib/            # Utility functions & DB helpers
+├── providers/      # Context providers
+├── public/         # Static assets
+├── .gitignore
+├── next.config.ts
+├── package.json
+├── tsconfig.json
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Node.js **v18+** recommended
+* npm
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/mahii1315/PersonalExpense.git
+cd PersonalExpense
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Run the development server
+
+```bash
+npm run dev
+```
+
+4. Open your browser and visit:
+
+```
+http://localhost:3000
+```
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the root directory if required:
+
+```env
+DATABASE_URL=./dev.db
+```
+
+> ⚠️ Do **not** commit `.env` or database files to GitHub.
+
+---
+
+## 🧪 Scripts
+
+```bash
+npm run dev     # Start development server
+npm run build   # Build for production
+npm run start   # Start production server
+```
+
+---
+
+## 📌 Best Practices
+
+* `node_modules`, `.next`, `.env`, and database files are ignored via `.gitignore`
+* Use meaningful commit messages
+* Keep secrets out of the repository
+
+---
+
+## 📈 Future Improvements
+
+* Authentication
+* Charts & analytics
+* Cloud database integration
+* Export reports (CSV/PDF)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a feature branch
+3. Commit changes
+4. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is open-source and available under the **MIT License**.
+
+---
+
+## 👤 Author
+
+**Mahii**
+GitHub: [https://github.com/mahii1315](https://github.com/mahii1315)
